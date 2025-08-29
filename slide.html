@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PRESENTATION_TITLE}}</title>
+    <style>
+        .executive {}
+
+        .executive__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 3rem;
+        }
+
+        .executive__content-title {
+            font-weight: semibold;
+            margin-bottom: 1rem;
+        }
+
+        .executive .narratives {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-row-gap: 1rem;
+
+        }
+
+        .executive .narratives h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .executive .narratives .narrative:nth-child(1) {
+            color: var(--clr-success);
+            background-color: var(--clr-success-bg);
+        }
+
+        .executive .narratives .narrative:nth-child(2) {
+            color: var(--clr-warning);
+            background-color: var(--clr-warning-bg);
+        }
+
+        .executive .narratives .narrative:nth-child(3) {
+            color: var(--clr-error);
+            background-color: var(--clr-error-bg);
+        }
+
+        .executive .narrative {
+            padding: 1rem;
+            border-left: 4px solid;
+        }
+
+        .executive .chart-container {
+            height: 300px;
+        }
+
+        .executive #risk-reach-chart {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="executive slide">
+        <div class="slide__header">
+            <h1 class="slide__title">Executive summary: Top 3 Narratives & Strategic Risk</h1>
+            <p class="slide__subtitle">
+                [slide subtitle 2-3 lines]
+            </p>
+        </div>
+        <div class="executive__content">
+            <div class="executive__narratives">
+                <h3 class="executive__content-title">Critical Narrative Cluster</h3>
+                <div class="narratives">
+                    <div class="narrative">
+                        <h4>[narrative topic 1]</h4>
+                        <p>[narrative summary 1]</p>
+                    </div>
+                    <div class="narrative">
+                        <h4>[narrative topic 2]</h4>
+                        <p>[narrative sumary 2]</p>
+                    </div>
+                    <div class="narrative">
+                        <h4>[narrative topic 3]</h4>
+                        <p>[narrative summary 3]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="executive__vizualize">
+                <h3 class="executive__content-title">Narrative Risk vs Reach Assessment</h3>
+                <div class="chart-container">
+                    <canvas id="risk-reach-chart"></canvas>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    const ctx = document.getElementById('risk-reach-chart');
+
+                    // ** ALWAYS use this config
+                    const chartOptions = {
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                align: 'center',
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: "React (Prevalance)",
+                                },
+                                grid: {
+                                    display: false,
+                                },
+                                ticks: {
+                                    display: false,
+                                }
+
+                            },
+                            y: {
+                                title: {
+                                    text: "Risk (Impatch)",
+                                    display: true,
+                                },
+                                grid: {
+                                    display: false,
+                                },
+                                ticks: {
+                                    display: false,
+                                }
+                            }
+                        }
+                    }
+
+
+                    new Chart(ctx, {
+                        type: 'bubble',
+                        data: {
+                            datasets: [{
+                                label: 'Financial Concern',
+                                data: [{
+                                    x: 20,
+                                    y: 30,
+                                    r: 10
+                                }, {
+                                    x: 40,
+                                    y: 10,
+                                    r: 10
+                                }],
+                                backgroundColor: '#4C00FF'
+                            }]
+                        },
+                        options: chartOptions,
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

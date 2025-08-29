@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PRESENTATION_TITLE}}</title>
+    <style>
+        :root {
+            --clr-primary: oklch(0.4619 0.275 264.9);
+            --clr-dark: hsl(211, 100%, 20%);
+            --clr-text: hsl(215, 28%, 17%);
+            --clr-text-light: hsl(215, 14%, 34%);
+            --clr-slate-light: hsl(200, 23%, 97%);
+            --clr-success: #1e4620;
+            --clr-success-bg: #edf7ed;
+            --clr-info: #014361;
+            --clr-info-bg: #e5f6fd;
+            --clr-warning: #663c00;
+            --clr-warning-bg: #fff4e5;
+            --clr-error: #5f2120;
+            --clr-error-bg: #fdeded;
+
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            max-width: 1140px;
+            width: 90%;
+            margin-inline: auto;
+            font-family: sans-serif;
+            font-size: 1rem;
+            background: #fff;
+            color: var(--clr-text);
+        }
+
+        .slide-container {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .slide {
+            width: 100%;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .slide__header {
+            background: var(--clr-slate-light);
+            padding: 1rem 1.5rem;
+            border-left: 4px solid var(--clr-dark);
+            margin-bottom: 2rem;
+        }
+
+        .slide__title {
+            color: var(--clr-dark);
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: bold;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .slide__subtitle {
+            color: var(--clr-text-light);
+        }
+
+        .platform_comp {}
+
+        .platform_comp__content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .platform {
+            border: 1px solid rgba(0, 0, 0, .1);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+
+        .platform__name {
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-bottom: .5rem;
+        }
+
+        .platform__reach {
+            color: var(--clr-info);
+            background-color: var(--clr-info-bg);
+            padding: .5rem 1rem;
+            border-radius: 9px;
+            font-weight: semibold;
+        }
+
+        .platform__tag-pill {
+            display: inline-block;
+            padding: 4px 8px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .tag-pill--info {
+            color: var(--clr-info);
+            background-color: var(--clr-info-bg);
+        }
+
+        .tag-pill--error {
+
+            color: var(--clr-error);
+            background-color: var(--clr-error-bg);
+        }
+
+        .tag-pill--warning {
+
+            color: var(--clr-warning);
+            background-color: var(--clr-warning-bg);
+        }
+
+        .tag-pill--success {
+
+            color: var(--clr-success);
+            background-color: var(--clr-success-bg);
+        }
+
+        .platform__key-narratives {
+            list-style: none;
+        }
+
+        .platform__key-narratives li {
+            padding-block: .75rem;
+            border-bottom: 1px solid var(--clr-info-bg)
+        }
+
+        .platform__key-narratives li::before {
+            content: "✔";
+            display: inline-block;
+            margin-right: 8px;
+            color: var(--clr-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="platform_comp slide">
+        <div class="slide__header">
+            <h1 class="slide__title">Platform Comparison Panel</h1>
+            <p class="slide__subtitle">
+                [slide subtitle 2-3 lines]
+            </p>
+        </div>
+        <div class="platform_comp__content">
+            {{#PLATFORM_LIST}}
+            <div class="platform">
+                <div style="border-bottom: 1px solid rgba(0,0,0,.1); padding-bottom: .75rem; margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: start">
+                        <div>
+                            <h4 class="platform__name">r/singapore</h4>
+                            <p style="color: var(--clr-text-light); margin-bottom: 1rem;">[platform tag]</p>
+                        </div>
+                        <p class="platform__reach">[platform reach (relative in %), eg: 50%]</p>
+                    </div>
+                    <div style="width: 100%; height: 100%; border-radius: 100px; background-color: var(--clr-info-bg);">
+                        <div
+                            style="width: [platform reach (relative in %), eg: 50%]; height: 10px; border-radius: 100px; background-color: var(--clr-primary)">
+                        </div>
+                    </div>
+                    <p style="color: var(--clr-text-light); margin-top: .5rem;">[reach count in absolute value, eg: 23
+                        discussions]</p>
+                </div>
+                <div style="display: grid; gap: 1rem;">
+                    <div>
+                        <p class="platform__tag-pill tag-pill--warning">[emotion-tyle (emotion relative value)]</p>
+                    </div>
+                    <div>
+                        <h5>Key Narratives:</h5>
+                        <ul class="platform__key-narratives">
+                            {{#Narrative_list}}
+                            <li>Factory Failure Stigma</li>
+                            <li>Factory Failure Stigma</li>
+                            <li>Factory Failure Stigma</li>
+                            {{/Narrtive_list}}
+                        </ul>
+                    </div>
+                    <div style="display: flex; gap: .5rem;">
+                        <p class="platform__tag-pill tag-pill--error">[emotion]
+                        <p>
+                        <p class="platform__tag-pill tag-pill--info">[volument label (highest, lowest etc)]
+                        <p>
+                    </div>
+                </div>
+            </div>
+            {{/PLATFORM_LIST}}
+        </div>
+        <p class="platform__tag-pill tag-pill--info"
+            style="padding: 1rem; display: block; margin-top: 2rem; font-size: 1rem; font-weight: normal">
+            <strong>✪ Target strategy</strong>: [target strategy in 1-2 lines]
+        </p>
+    </section>
+</body>
+
+</html>

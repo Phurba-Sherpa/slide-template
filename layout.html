@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PRESENTATION_TITLE}}</title>
+</head>
+<style>
+    :root {
+        --clr-primary: oklch(0.4619 0.275 264.9);
+        --clr-dark: hsl(211, 100%, 20%);
+        --clr-text: hsl(215, 28%, 17%);
+        --clr-text-light: hsl(215, 14%, 34%);
+        --clr-slate-light: hsl(200, 23%, 97%);
+        --clr-success: #1e4620;
+        --clr-success-bg: #edf7ed;
+        --clr-info: #014361;
+        --clr-info-bg: #e5f6fd;
+        --clr-warning: #663c00;
+        --clr-warning-bg: #fff4e5;
+        --clr-error: #5f2120;
+        --clr-error-bg: #fdeded;
+
+    }
+
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        max-width: 1140px;
+        width: 90%;
+        margin-inline: auto;
+        font-family: sans-serif;
+        font-size: 1rem;
+        background: #fff;
+        color: var(--clr-text);
+    }
+
+    .slide-container {
+        display: grid;
+        gap: 3rem;
+    }
+
+    .slide {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .slide__header {
+        background: var(--clr-slate-light);
+        padding: 1rem 1.5rem;
+        border-left: 4px solid var(--clr-dark);
+        margin-bottom: 2rem;
+    }
+
+    .slide__title {
+        color: var(--clr-dark);
+        font-size: clamp(18px, 3vw, 24px);
+        font-weight: bold;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+
+    .slide__subtitle {
+        color: var(--clr-text-light);
+    }
+</style>
+
+<body>
+    <main class="slide-container">
+        {{#SLIDES}}
+        <!-- APPEND ALL SLIDES HERE -->
+        {{/SLIDES}}
+    </main>
+</body>
