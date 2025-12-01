@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PRESENTATION_TITLE}}</title>
+</head>
+<style>
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin-inline: auto;
+        max-width: 1920px;
+        width: 90%;
+        height: 1080px;
+        overflow: hidden;
+        position: relative;
+        font-family: sans-serif;
+        font-size: 1rem;
+        background: #fff;
+        color: #1f2937;
+    }
+
+    .content-wrapper {
+        display: grid;
+        gap: 3rem;
+        height: 100%;
+    }
+
+    .slide__header {
+        background: #f6f8f9;
+        padding: 1rem 1.5rem;
+        border-left: 4px solid #003166;
+        margin-bottom: 2rem;
+    }
+
+    .slide__title {
+        color: #003166;
+        font-size: clamp(18px, 3vw, 24px);
+        font-weight: bold;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+
+    .slide__subtitle {
+        color: #4b5563;
+        font-size: 0.9rem;
+    }
+
+    .persona-matrix {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table thead {
+        text-align: left;
+        color: #003166;
+        background-color: #f6f8f9;
+    }
+
+    th,
+    td {
+        padding: 1rem 2rem;
+    }
+
+    tbody tr {
+        border-bottom: 3px solid #f6f8f9;
+    }
+</style>
+
+<body>
+    <main class="content-wrapper">
+        <section class="persona slide">
+            <div class="slide__header">
+                <h1 class="slide__title">Persona Matrix: Segments, Sentiments, and Levers</h1>
+                <p class="slide__subtitle">
+                    Youth segments show distinct patterns of sentiment and concerns that require tailored communication
+                    approaches—with ITE/Poly students being
+                    most receptive to manufacturing narratives.
+                </p>
+            </div>
+            <table class="persona-matrix">
+                <thead>
+                    <tr>
+                        <th>Youth Persona</th>
+                        <th>Sentiment Score</th>
+                        <th>Top Concerns</th>
+                        <th>Communication Levers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p style="font-weight: bold; margin-bottom: 0.25rem;">ITE Pragmatist</p>
+                            <p
+                                style="color: #1e4620;background-color: background-color: #edf7ed; font-size: 13px; padding: 4px 8px; border-radius: 100px;">
+                                Economic survivor
+                            </p>
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.25rem;">
+                                <div style="width: 70%; height: 10px; border-radius: 100px; background-color: #edf7ed;">
+                                    <div
+                                        style="width: 50%; border-radius: 100px; height: 10px; background-color: green;">
+                                    </div>
+                                </div>
+                                <p style="font-size: 1.25rem; font-weight: bold; color: #1e4620;">
+                                    50%
+                                </p>
+                            </div>
+                            <p style="color: #4b5563;">positive</p>
+                        </td>
+                        <td>
+                            <ul style="list-style-position: inside;">
+                                <li>Immediate salary vs. living expenses</li>
+                                <li>Job stability and security</li>
+                                <li>Skills relevance in automation era</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul style="list-style: none;">
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>Immediate salary vs living
+                                    expenses</li>
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>
+                                    Job stability and security</li>
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>
+                                    Skills relevance in automation era
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="font-weight: bold; margin-bottom: 0.25rem;">ITE Pragmatist</p>
+                            <p
+                                style="color: #5f2120; background-color: #fdeded; font-size: 13px; padding: 4px 8px; border-radius: 100px;">
+                                Economic survivor
+                            </p>
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.25rem;">
+                                <div style="width: 70%; height: 10px; border-radius: 100px; background-color: #fdeded;">
+                                    <div style="width: 50%; border-radius: 100px; height: 10px; background-color: red;">
+                                    </div>
+                                </div>
+                                <p style="font-size: 1.25rem; font-weight: bold; color: #5f2120;">
+                                    50%
+                                </p>
+                            </div>
+                            <p style="color: #4b5563;">Most Negative Segment</p>
+                        </td>
+                        <td>
+                            <ul style="list-style-position: inside;">
+                                <li>Immediate salary vs. living expenses</li>
+                                <li>Job stability and security</li>
+                                <li>Skills relevance in automation era</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul style="list-style: none;">
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>Immediate salary vs living
+                                    expenses</li>
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>
+                                    Job stability and security</li>
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>
+                                    Skills relevance in automation era
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="font-weight: bold; margin-bottom: 0.25rem;">ITE Pragmatist</p>
+                            <p
+                                style="color: #5f2120; background-color: #fdeded; font-size: 13px; padding: 4px 8px; border-radius: 100px;">
+                                Economic survivor
+                            </p>
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.25rem;">
+                                <div style="width: 70%; height: 10px; border-radius: 100px; background-color: #fdeded;">
+                                    <div style="width: 50%; border-radius: 100px; height: 10px; background-color: red;">
+                                    </div>
+                                </div>
+                                <p style="font-size: 1.25rem; font-weight: bold; color: #5f2120;">
+                                    50%
+                                </p>
+                            </div>
+                            <p style="color: #4b5563;">Most Negative Segment</p>
+                        </td>
+                        <td>
+                            <ul style="list-style-position: inside;">
+                                <li>Immediate salary vs. living expenses</li>
+                                <li>Job stability and security</li>
+                                <li>Skills relevance in automation era</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul style="list-style: none;">
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>Immediate salary vs living
+                                    expenses</li>
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>
+                                    Job stability and security</li>
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>
+                                    Skills relevance in automation era
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="font-weight: bold; margin-bottom: 0.25rem;">ITE Pragmatist</p>
+                            <p
+                                style="color: #663c00; background-color: #fff4e5; font-size: 13px; padding: 4px 8px; border-radius: 100px;">
+                                Economic survivor
+                            </p>
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.25rem;">
+                                <div style="width: 70%; height: 10px; border-radius: 100px; background-color: #fff4e5;">
+                                    <div
+                                        style="width: 50%; border-radius: 100px; height: 10px; background-color: orange;">
+                                    </div>
+                                </div>
+                                <p style="font-size: 1.25rem; font-weight: bold; color: #663c00;">
+                                    50%
+                                </p>
+                            </div>
+                            <p style="color: #4b5563;">Most convertible segment</p>
+                        </td>
+                        <td>
+                            <ul style="list-style-position: inside;">
+                                <li>Immediate salary vs. living expenses</li>
+                                <li>Job stability and security</li>
+                                <li>Skills relevance in automation era</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul style="list-style: none;">
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>Immediate salary vs living
+                                    expenses</li>
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>
+                                    Job stability and security</li>
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>
+                                    Skills relevance in automation era
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="font-weight: bold; margin-bottom: 0.25rem;">ITE Pragmatist</p>
+                            <p
+                                style="color: #5f2120; background-color: #fdeded; font-size: 13px; padding: 4px 8px; border-radius: 100px;">
+                                Economic survivor
+                            </p>
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.25rem;">
+                                <div style="width: 70%; height: 10px; border-radius: 100px; background-color: #fdeded;">
+                                    <div style="width: 50%; border-radius: 100px; height: 10px; background-color: red;">
+                                    </div>
+                                </div>
+                                <p style="font-size: 1.25rem; font-weight: bold; color: #5f2120;">
+                                    50%
+                                </p>
+                            </div>
+                            <p style="color: #4b5563;">Most Negative Segment</p>
+                        </td>
+                        <td>
+                            <ul style="list-style-position: inside;">
+                                <li>Immediate salary vs. living expenses</li>
+                                <li>Job stability and security</li>
+                                <li>Skills relevance in automation era</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul style="list-style: none;">
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>Immediate salary vs living
+                                    expenses</li>
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>
+                                    Job stability and security</li>
+                                <li><span style="margin-right: 0.5rem;">&#10004;</span>
+                                    Skills relevance in automation era
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>

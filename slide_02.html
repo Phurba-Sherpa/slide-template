@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PRESENTATION_TITLE}}</title>
+</head>
+<style>
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin-inline: auto;
+        max-width: 1920px;
+        width: 90%;
+        height: 1080px;
+        overflow: hidden;
+        position: relative;
+        font-family: sans-serif;
+        font-size: 1rem;
+        background: #fff;
+        color: #1f2937;
+    }
+
+    .content-wrapper {
+        display: grid;
+        gap: 3rem;
+        height: 100%;
+    }
+
+    .slide__header {
+        background: #f6f8f9;
+        padding: 1rem 1.5rem;
+        border-left: 4px solid #003166;
+        margin-bottom: 2rem;
+    }
+
+    .slide__title {
+        color: var(--clr-dark);
+        font-size: clamp(18px, 3vw, 24px);
+        font-weight: bold;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+
+    .slide__subtitle {
+        color: var(--clr-text-light);
+        font-size: 0.9rem;
+    }
+
+    .executive__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 3rem;
+    }
+
+    .executive__content-title {
+        font-weight: semibold;
+        margin-bottom: 1rem;
+    }
+
+    .executive .narratives {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 1rem;
+    }
+
+    .executive .narratives h4 {
+        margin-bottom: 0.5rem;
+    }
+
+    .executive .narratives .narrative:nth-child(1) {
+        color: #1e4620;
+        background-color: #edf7ed;
+    }
+
+    .executive .narratives .narrative:nth-child(2) {
+        color: #663c00;
+        background-color: #fff4e5;
+    }
+
+    .executive .narratives .narrative:nth-child(3) {
+        color: #5f212;
+        background-color: #fdeded;
+    }
+
+    .executive .narrative {
+        padding: 1rem;
+        border-left: 4px solid;
+    }
+
+    .executive .chart-container {
+        height: 300px;
+    }
+
+    .executive #risk-reach-chart {
+        height: 100%;
+    }
+</style>
+
+<body>
+    <main class="content-wrapper">
+        <section class="executive slide">
+            <div class="slide__header">
+                <h1 class="slide__title">Executive summary: Top 3 Narratives & Strategic Risk</h1>
+                <p class="slide__subtitle">
+                    Youth perceptions of manufacturing careers are dominated by financial anxiety, educational stigma,
+                    and work-life balance concerns-high-impact narratives requiring targeted intervention.
+                </p>
+            </div>
+            <div class="executive__content">
+                <div class="executive__narratives">
+                    <h3 class="executive__content-title">Critical Narrative Cluster</h3>
+                    <div class="narratives">
+                        <div class="narrative">
+
+                            <h4>Financial Inadequacy Concerns</h4>
+                            <p>
+                                Manufacturing salaries perceived as insufficient for Singapore's high cost of living.
+                                Most prevalent narrative (17.5%) with high emotional intensity.
+                            </p>
+                        </div>
+                        <div class="narrative">
+
+                            <h4>Skills Mismatch & Educational Stigma</h4>
+                            <p>
+                                Manufacturing viewed as career for those who "cannot make it" academically. Strong
+                                family/peer influence on perception (17.5%).
+                            </p>
+                        </div>
+                        <div class="narrative">
+                            <h4>
+                                Work-Life Balance Fears
+                            </h4>
+                            <p>
+                                Concerns about long hours, shift work, and limited personal life.Particularly strong
+                                among university students (5.6%).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="executive__visualize">
+                    <h3 class="executive__content-title">Narrative Risk vs Reach Assessment</h3>
+                    <div class="chart-container">
+                        <canvas id="risk-reach-chart"></canvas>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        const ctx = document.getElementById('risk-reach-chart');
+                        const chartOptions = {
+                            plugins: {
+                                legend: {
+                                    position: 'bottom',
+                                    align: 'center',
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: "Reach (Prevalence)",
+                                    },
+                                    ticks: {
+                                        display: false,
+                                    }
+                                },
+                                y: {
+                                    title: {
+                                        text: "Risk (Impact)",
+                                        display: true,
+                                    },
+                                    ticks: {
+                                        display: false,
+                                    }
+                                }
+                            }
+                        }
+                        new Chart(ctx, {
+                            type: 'bubble',
+                            data: {
+                                datasets: [{
+                                    label: 'Financial Concern',
+                                    data: [{
+                                        x: 20,
+                                        y: 30,
+                                        r: 10
+                                    }, {
+                                        x: 40,
+                                        y: 10,
+                                        r: 10
+                                    }],
+                                    backgroundColor: '#4C00FF'
+                                }]
+                            },
+                            options: chartOptions,
+                        });
+                    </script>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>

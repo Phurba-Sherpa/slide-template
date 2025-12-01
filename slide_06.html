@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PRESENTATION_TITLE}}</title>
+</head>
+<style>
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin-inline: auto;
+        max-width: 1920px;
+        width: 90%;
+        height: 1080px;
+        overflow: hidden;
+        position: relative;
+        font-family: sans-serif;
+        font-size: 1rem;
+        background: #fff;
+        color: #1f2937;
+    }
+
+    .content-wrapper {
+        display: grid;
+        gap: 3rem;
+        height: 100%;
+    }
+
+    .slide__header {
+        background: #f6f8f9;
+        padding: 1rem 1.5rem;
+        border-left: 4px solid #003166;
+        margin-bottom: 2rem;
+    }
+
+    .slide__title {
+        color: #003166;
+        font-size: clamp(18px, 3vw, 24px);
+        font-weight: bold;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+
+    .slide__subtitle {
+        color: #4b5563;
+        font-size: 0.9rem;
+    }
+
+    .emotion-x-heat__viz {
+        margin-inline: auto;
+        margin-bottom: 1.25rem;
+        border: 1px solid rgba(0, 0, 0, .10);
+        border-radius: 12px;
+    }
+
+    #emotion-x-heat {
+        height: 500px;
+        margin-inline: auto;
+    }
+</style>
+
+<body>
+    <main class="content-wrapper">
+        <section class="slide">
+            <div class="slide__header">
+                <h1 class="slide__title">Executive summary: Top 3 Narratives & Strategic Risk</h1>
+                <p class="slide__subtitle">
+                    Emotional patterns vary significantly across education segments—with university students showing
+                    higher anxiety and cynicism, while ITE students express more pragmatism and hope.
+                </p>
+            </div>
+            <div class="emotion-x-heat__content">
+                <div class="">
+                    <div class="emotion-x-heat__viz">
+                        <canvas id="emotion-x-heat"></canvas>
+                    </div>
+                    <p>University students display the highest cynicism and anxiety related to manufacturing careers,
+                        focusing on status and comparison. ITE students show more empowerment and hope, valuing hands-on
+                        skills and immediate employment. Polytechnic students occupy the middle ground with pragmatic
+                        resignation alongside opportunity recognition.</p>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    const ctx = document.getElementById('emotion-x-heat');
+
+                    // ** ALWAYS use this config
+                    const emotionxheatOptions = {
+                        indexAxis: 'y',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                align: 'center',
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: false,
+                                },
+                                grid: {
+                                    display: false,
+                                },
+                            },
+                            y: {
+                                grid: {
+                                    display: false,
+                                },
+                                title: {
+                                    display: false,
+                                },
+                            }
+                        }
+                    }
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Aspiration', 'Pride', 'Resignation', 'Hope', 'Cynicism', 'Anxiety', 'Frustration', 'Empowerment'],
+                            datasets: [{
+                                label: 'Emotion',
+                                data: [72, 58, 40, 65, 33, 81, 76, 54], // sample generated values
+                                backgroundColor: '#4C00FF'
+                            }]
+                        },
+                        options: emotionxheatOptions,
+                    });
+                </script>
+            </div>
+        </section>
+    </main>
+</body>

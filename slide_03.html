@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PRESENTATION_TITLE}}</title>
+</head>
+<style>
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin-inline: auto;
+        max-width: 1920px;
+        width: 90%;
+        height: 1080px;
+        overflow: hidden;
+        position: relative;
+        font-family: sans-serif;
+        font-size: 1rem;
+        background: #fff;
+        color: #1f2937;
+    }
+
+    .content-wrapper {
+        display: grid;
+        gap: 3rem;
+        height: 100%;
+    }
+
+    .slide__header {
+        background: #f6f8f9;
+        padding: 1rem 1.5rem;
+        border-left: 4px solid #003166;
+        margin-bottom: 2rem;
+    }
+
+    .slide__title {
+        color: #003166;
+        font-size: clamp(18px, 3vw, 24px);
+        font-weight: bold;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+
+    .slide__subtitle {
+        color: #4b5563;
+        font-size: 0.9rem;
+    }
+
+
+    .narr-clust__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .narr-clust__chart-container {
+        width: 1080px;
+    }
+
+    #narr-clust-chart {
+        height: 100%;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    .narr-clust .key-findings__summary {
+        color: var(--clr-dark);
+        margin-bottom: 1rem;
+    }
+
+    .narr-clust .key-findings__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .narr-clust .kf__item-sentiment::before {
+        content: '';
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 100px;
+        margin-right: 4px;
+    }
+
+    .narr-clust .sentiment--negative::before {
+        background-color: #cc0000;
+    }
+
+    .narr-clust .sentiment--neutral::before {
+        background-color: #f6c000;
+    }
+
+    .narr-clust .sentiment--positive::before {
+        background-color: #00aa63;
+    }
+</style>
+
+<body>
+    <main class="content-wrapper">
+        <section class="narr-clust slide">
+            <div class="slide__header">
+                <h1 class="slide__title">Narrative Cluster Map</h1>
+                <p class="slide__subtitle">
+                    Eight distinct narrative clusters shape youth perceptions of manufacturing careers, with educational
+                    stigma and financial concerns showing the highest prevalence and most negative sentiment.
+                </p>
+            </div>
+            <div class="narr-clust__content">
+                <div class="narr-clust__visualize">
+                    <div class="narr-clust__chart-container">
+                        <canvas id="narr-clust-chart"></canvas>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        const ctx = document.getElementById('narr-clust-chart');
+                        // ** ALWAYS use this config
+                        const chartOptions = {
+                            plugins: {
+                                legend: {
+                                    position: 'bottom',
+                                    align: 'center',
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: "Reach (Prevalence)",
+                                    },
+                                },
+                                y: {
+                                    title: {
+                                        text: "Risk (Impact)",
+                                        display: true,
+                                    },
+                                }
+                            }
+                        }
+                        new Chart(ctx, {
+                            type: 'bubble',
+                            data: {
+                                datasets: [{
+                                    label: 'Financial Concern',
+                                    data: [{
+                                        x: 20,
+                                        y: 30,
+                                        r: 10
+                                    }, {
+                                        x: 40,
+                                        y: 10,
+                                        r: 10
+                                    }],
+                                    backgroundColor: '#4C00FF'
+                                }]
+                            },
+                            options: chartOptions,
+                        });
+                    </script>
+                </div>
+                <div class="key-findings">
+                    <h4 class="key-findings__summary">Key Findings: [key findings summarized in 1 line]</h4>
+                    <div class="key-findings__list">
+                        <div class="key-findings__item">
+                            <p class="kf__item-caption"><strong>Financial Inadequacy Concerns</strong></p>
+                            <p class="kf__item-sentiment sentiment--negative">
+                                <span>Negative</span>|<span>High Prevelance</span>
+                            </p>
+                        </div>
+                        <div class="key-findings__item">
+                            <p class="kf__item-caption"><strong>Educational Mismatch & Educational Stigma</strong></p>
+                            <p class="kf__item-sentiment sentiment--negative">
+                                <span>Negative</span>|<span>High Prevelance</span>
+                            </p>
+                        </div>
+                        <div class="key-findings__item">
+                            <p class="kf__item-caption"><strong>Work-Life Balance Fears</strong></p>
+                            <p class="kf__item-sentiment sentiment--negative">
+                                <span>Negative</span>|<span>Medium Prevelance
+                            </p>
+                        </div>
+                        <div class="key-findings__item">
+                            <p class="kf__item-caption"><strong>Innovation Perception Gap</strong></p>
+                            <p class="kf__item-sentiment sentiment--neutral">
+                                <span>Mixed</span>|<span>Medium Prevelance
+                            </p>
+                        </div>
+                        <div class="key-findings__item">
+                            <p class="kf__item-caption"><strong>Hands-on value appreciation</strong></p>
+                            <p class="kf__item-sentiment sentiment--positive">
+                                <span>Positive</span>|<span>Low Prevelance
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
