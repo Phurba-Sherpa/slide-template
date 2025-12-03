@@ -16,19 +16,20 @@
     }
 
     body {
-        margin-inline: auto;
         max-width: 1920px;
-        width: 90%;
         height: 1080px;
         overflow: hidden;
         position: relative;
         font-family: sans-serif;
-        font-size: 1rem;
+        font-size: 1.25rem;
         background: #fff;
         color: #1f2937;
+        padding: 32px 96px;
     }
 
-    .content-wrapper {
+    .slide-container {
+        max-width: 1400px;
+        margin-inline: auto;
         display: grid;
         gap: 3rem;
         height: 100%;
@@ -36,33 +37,33 @@
 
     .slide__header {
         background: #f6f8f9;
-        padding: 1rem 1.5rem;
+        padding: 1.5rem 3rem;
         border-left: 4px solid #003166;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 
     .slide__title {
         color: #003166;
-        font-size: clamp(18px, 3vw, 24px);
+        font-size: clamp(32px, 3vw, 42px);
         font-weight: bold;
         line-height: 1.1;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     .slide__subtitle {
         color: #4b5563;
-        font-size: 0.9rem;
+        font-size: 1.25rem;
     }
 
     .emotion-x-heat__viz {
         margin-inline: auto;
-        margin-bottom: 1.25rem;
-        border: 1px solid rgba(0, 0, 0, .10);
+        margin-bottom: 2rem;
+        border: 1px solid rgba(0, 0, 0, .15);
         border-radius: 12px;
     }
 
     #emotion-x-heat {
-        height: 500px;
+        height: 600px;
         margin-inline: auto;
     }
 </style>
@@ -71,7 +72,7 @@
     <main class="content-wrapper">
         <section class="slide">
             <div class="slide__header">
-                <h1 class="slide__title">Executive summary: Top 3 Narratives & Strategic Risk</h1>
+                <h1 class="slide__title">Sentiment X HeatMap</h1>
                 <p class="slide__subtitle">
                     Emotional patterns vary significantly across education segments—with university students showing
                     higher anxiety and cynicism, while ITE students express more pragmatism and hope.

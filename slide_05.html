@@ -16,20 +16,20 @@
     }
 
     body {
-        margin-inline: auto;
         max-width: 1920px;
-        width: 90%;
         height: 1080px;
         overflow: hidden;
         position: relative;
         font-family: sans-serif;
-        font-size: 1rem;
+        font-size: 1.25rem;
         background: #fff;
         color: #1f2937;
-        /* var(--clr-text) */
+        padding: 32px 96px;
     }
 
-    .content-wrapper {
+    .slide-container {
+        max-width: 1400px;
+        margin-inline: auto;
         display: grid;
         gap: 3rem;
         height: 100%;
@@ -37,23 +37,24 @@
 
     .slide__header {
         background: #f6f8f9;
-        padding: 1rem 1.5rem;
+        padding: 1.5rem 3rem;
         border-left: 4px solid #003166;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 
     .slide__title {
         color: #003166;
-        font-size: clamp(18px, 3vw, 24px);
+        font-size: clamp(32px, 3vw, 48px);
         font-weight: bold;
         line-height: 1.1;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     .slide__subtitle {
         color: #4b5563;
-        font-size: 0.9rem;
+        font-size: 1.25rem;
     }
+
 
     .narr-deep__content {
         display: grid;
@@ -79,36 +80,31 @@
         display: grid;
         gap: 1rem;
         background-color: #f6f8f9;
-        /* var(--clr-slate-light) */
         padding: 1rem;
         color: #4b5563;
-        /* var(--clr-text-light) */
     }
 
     .data-snapshot .quantity {
-        font-size: 1.75rem;
+        font-size: 2rem;
         font-weight: bold;
         color: #0c2fee;
-        /* var(--clr-primary) */
     }
 
     .data-snapshot__item {
         display: flex;
-        gap: 0.5rem;
+        gap: 1.5rem;
         align-items: center;
     }
 
     .authentic-voice {
         padding: 1rem;
         background-color: #f6f8f9;
-        /* var(--clr-slate-light) */
         border-left: 4px solid #0c2fee;
-        /* var(--clr-primary) */
         font-style: italic;
     }
 
     .narr-deep__chart-container {
-        height: 250px;
+        height: 350px;
     }
 
     #narr-deep-chart {
